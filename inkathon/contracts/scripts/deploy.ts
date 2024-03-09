@@ -4,7 +4,7 @@ import { writeContractAddresses } from '@/utils/writeContractAddresses'
 import { deployContract } from '@scio-labs/use-inkathon/helpers'
 
 /**
- * Script that deploys the greeter contract and writes its address to a file.
+ * Script that deploys the health_ledger contract and writes its address to a file.
  *
  * Parameters:
  *  - `DIR`: Directory to read contract build artifacts & write addresses to (optional, defaults to `./deployments`)
@@ -18,8 +18,8 @@ const main = async () => {
   const initParams = await initPolkadotJs()
   const { api, chain, account } = initParams
 
-  // Deploy greeter contract
-  const { abi, wasm } = await getDeploymentData('greeter')
+  // Deploy health_ledger contract
+  const { abi, wasm } = await getDeploymentData('health_ledger')
   const greeter = await deployContract(api, account, abi, wasm, 'default', [])
 
   // Write contract addresses to `{contract}/{network}.ts` file(s)
