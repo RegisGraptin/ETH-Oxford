@@ -1,6 +1,6 @@
 {
   "source": {
-    "hash": "0x2c2b61b32c3e288e4d9d501f2977fa74470011ebf0316b762b9eb729276f49e6",
+    "hash": "0x97567fb61c2ae5eb4a2827a6d1503d9fd18aba59b3640ba2ec4eb824a902fa52",
     "language": "ink! 4.3.0",
     "compiler": "rustc 1.75.0",
     "build_info": {
@@ -25,9 +25,7 @@
       {
         "args": [],
         "default": false,
-        "docs": [
-          "Constructor"
-        ],
+        "docs": [],
         "label": "new",
         "payable": false,
         "returnType": {
@@ -186,12 +184,27 @@
           "fields": [
             {
               "layout": {
-                "leaf": {
-                  "key": "0x00000000",
-                  "ty": 0
+                "root": {
+                  "layout": {
+                    "struct": {
+                      "fields": [
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xcc6520ad",
+                              "ty": 0
+                            }
+                          },
+                          "name": "records"
+                        }
+                      ],
+                      "name": "PatientLedger"
+                    }
+                  },
+                  "root_key": "0xcc6520ad"
                 }
               },
-              "name": "records"
+              "name": "patients"
             }
           ],
           "name": "HealthLedger"

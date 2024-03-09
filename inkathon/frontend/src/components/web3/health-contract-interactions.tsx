@@ -76,6 +76,7 @@ export const HealthContractInteractions: FC = () => {
         setFetchIsLoading(true)
         try {
             const result = await contractQuery(api, '', contract, 'get')
+            
             const { output, isError, decodedOutput } = decodeOutput(result, contract, 'get')
             if (isError) throw new Error(decodedOutput)
             if (output != undefined) {
