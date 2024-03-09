@@ -62,7 +62,7 @@ mod health_ledger {
             hospital: String,
             record_type: String
         ) {
-            let account_id = self.env().account_id();
+            let account_id = self.env().caller();
 
             let mut health_ledger: PatientLedger; 
 
@@ -90,7 +90,7 @@ mod health_ledger {
         /// Get the record
         #[ink(message)]
         pub fn get(&self) -> Vec<HealthRecord> {
-            let account_id = Self::env().caller();
+            let account_id = self.env().caller();
             let health_ledger = self.patients.get(account_id);
             match health_ledger {
                 Some(x) => x.records,
@@ -134,9 +134,5 @@ mod health_ledger {
             assert_eq!(data.len(), 2);
         }
 
-
-
     }
-
-
 }
