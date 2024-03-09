@@ -1,10 +1,13 @@
 #![cfg_attr(not(feature = "std"), no_std, no_main)]
 
+
 #[ink::contract]
 mod health_ledger {
 
+    use ink::storage::Mapping;
     use ink_prelude::string::String;
     use ink_prelude::vec::Vec;
+
 
     #[derive(Clone, Default, scale::Decode, scale::Encode)]
     #[cfg_attr(
@@ -21,19 +24,27 @@ mod health_ledger {
 
 
     /// Health information of the user
-    #[ink(storage)]
-    #[derive(Default, Clone)]
-    pub struct HealthLedger {
+    #[derive(Clone, Default, scale::Decode, scale::Encode)]
+    #[cfg_attr(
+        feature = "std",
+        derive(Debug, PartialEq, Eq, scale_info::TypeInfo, ink::storage::traits::StorageLayout)
+    )]
+    pub struct PatientLedger {
         records: Vec<HealthRecord>
     }
 
+    #[ink(storage)]
+    pub struct HealthLedger {
+        patients: Mapping<AccountId, PatientLedger>,
+    }
+
+
     impl HealthLedger {
 
-        /// Constructor
         #[ink(constructor)]
         pub fn new() -> Self {
             Self { 
-                records: Vec::new()
+                patients: Mapping::default()
             }
         }
 
@@ -51,6 +62,18 @@ mod health_ledger {
             hospital: String,
             record_type: String
         ) {
+            let account_id = self.env().account_id();
+
+            let mut health_ledger: PatientLedger; 
+
+            if !self.patients.contains(account_id) {
+                health_ledger = PatientLedger {
+                    records: Vec::new()
+                };
+            } else {
+                health_ledger = self.patients.get(account_id).unwrap();
+            }
+
             let new_record = HealthRecord {
                 date: self.env().block_timestamp(),
                 title,
@@ -58,14 +81,62 @@ mod health_ledger {
                 hospital,
                 record_type
             };
-            self.records.push(new_record);
+
+            health_ledger.records.push(new_record);
+    
+            self.patients.insert(&account_id, &health_ledger);
         }
 
         /// Get the record
         #[ink(message)]
         pub fn get(&self) -> Vec<HealthRecord> {
-            self.records.clone()
+            let account_id = Self::env().caller();
+            let health_ledger = self.patients.get(account_id);
+            match health_ledger {
+                Some(x) => x.records,
+                _ => Vec::new()
+            }
         }
     }
+
+
+
+    #[cfg(test)]
+    mod tests {
+        use super::*;
+
+        #[ink::test]
+        fn new_instanciate() {
+            let health = HealthLedger::new();
+            let data = health.get();
+            assert_eq!(data, []);
+        }
+
+        #[ink::test]
+        fn test_add() {
+            let mut health = HealthLedger::new();
+            health.add(
+                "title".to_string(), 
+                "doctor".to_string(), 
+                "hospital".to_string(), 
+                "record".to_string()
+            );
+            let data = health.get();
+            assert_eq!(data.len(), 1);
+            
+            health.add(
+                "title".to_string(), 
+                "doctor".to_string(), 
+                "hospital".to_string(), 
+                "record".to_string()
+            );
+            let data = health.get();
+            assert_eq!(data.len(), 2);
+        }
+
+
+
+    }
+
 
 }
