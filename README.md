@@ -17,16 +17,25 @@ Health Book isn't just about convenience—it's about empowering individuals to 
 
 Join us in revolutionizing healthcare with Health Book. Together, we can transform the way medical records are managed and ensure that everyone receives the personalized care they deserve.
 
+## Get started
+
+Take a look at our website: https://eth-oxford-khaki.vercel.app/
+
 
 ## Technical Implementation
 
-We are using Aleph Zero to store medical records of patients. We decided to build on top of Aleph Zero as the Privacy Engine will be released soon, allowing us to have fully privacy over the data.
+We are using Aleph Zero to store medical records of patients on the Blockchain. We decided to build on top of Aleph Zero as the Privacy Engine is in they roadmap and can provide us a fully private state. 
+
+We have use the `ink!athon` boilerplate to structure the project organization for the smart contract and front end.
+Contract information can be found in `inkathon/contract/`.
+
+
 
 ## Roadmap
 
-At the moment, we will have a record for all users. New records can only be added by the user. But we could imagine in the future a consortium of doctors allows to update and add new medical records. 
+At the moment, we have a list of records for all users. New records can only be added by the user. But we could imagine in the future a consortium of doctors that are allow to update or add new medical records after an appoitment or medical opperation. 
 
-Decide to segment the information or to share only partial to it. If you have an injury on the foot, you may want to choose which information you want to share, maybe not your dental data.
+Another point to think would be to let the user the possibility to segment their medical data and choose which information to share with different parties. For example, individuals may want to share only relevant information related to a specific injury or condition while keeping other details private. This granular control empowers users to manage their privacy preferences according to their unique needs and preferences.
 
-Physical token allowing you to access your medical data. On an emergency, we know the blood card, allowing you to know your blood type, when you do not know it or enable to share it. It is the same system, on an emergency, where medical people can scan your token and have access to your medical information.
+Finally, in response to critical situations where immediate access to medical information can be life-saving, we are thinking to introduce physical token designed to provide seamless emergency access to user data. Similar to a blood type card, this token can be scan enabling you to get access to your medical information in case of  emergencies. Whether it's an unexpected accident or a sudden medical crisis, this physical token ensure that vital information is immediately available, enabling rapid and informed decision-making by healthcare professionals.
 
