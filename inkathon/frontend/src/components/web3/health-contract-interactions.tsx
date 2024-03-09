@@ -21,7 +21,6 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Form, FormControl, FormItem, FormLabel } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { contractTxWithToast } from '@/utils/contract-tx-with-toast'
-import colors from 'tailwindcss/colors'
 
 const formSchema = z.object({
     title: z.string().min(1).max(255),
@@ -122,7 +121,6 @@ export const HealthContractInteractions: FC = () => {
 
     return (
         <>
-
             <article className="col-span-2 bg-gray-900">
                 <Card>
                     <CardContent className="pt-6">

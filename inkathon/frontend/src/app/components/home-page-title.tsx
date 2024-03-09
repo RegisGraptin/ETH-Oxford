@@ -27,8 +27,8 @@ const StyledIconLink: React.FC<StyledIconLinkProps> = ({ className, children, ..
 )
 
 export const HomePageTitle: FC = () => {
-  const title = 'ink!athon'
-  const desc = 'Full-Stack DApp Boilerplate for ink! Smart Contracts'
+  const title = 'Health Book'
+  const desc = 'Securely Trace Your Medical Life Records by Empowering Blockchain Technology.'
   const githubHref = 'https://github.com/scio-labs/inkathon'
   const deployHref = 'https://github.com/scio-labs/inkathon#deployment-'
   const telegramHref = 'https://t.me/inkathon'

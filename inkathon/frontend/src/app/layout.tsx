@@ -19,15 +19,15 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'ink!athon Boilerplate',
-  description: 'Full-Stack DApp Boilerplate for ink! Smart Contracts',
+  title: 'Health Book',
+  description: 'Securely Trace Your Medical Life Records by Empowering Blockchain Technology.',
   metadataBase: new URL(env.url),
   robots: env.isProduction ? 'all' : 'noindex,nofollow',
   openGraph: {
     type: 'website',
     locale: 'en',
     url: env.url,
-    siteName: 'ink!athon Boilerplate',
+    siteName: 'Health Book',
     images: [
       {
         url: '/images/inkathon-og-banner.jpg',
@@ -35,11 +35,6 @@ export const metadata: Metadata = {
         height: 640,
       },
     ],
-  },
-  twitter: {
-    site: '@scio_xyz',
-    creator: '@scio_xyz',
-    card: 'summary_large_image',
   },
 }
 
