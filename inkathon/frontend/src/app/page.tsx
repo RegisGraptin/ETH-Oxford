@@ -103,7 +103,7 @@ export default function HomePage() {
 
               <div className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
                 <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-                  You're in control of your medical data
+                  You are in control of your medical data
                 </h2>
                 <p className="mb-4">
                   Easily grant or revoke access to your information whenever you choose. This level of control promotes transparency, ensuring that medical professionals only have access to the information you permit. Plus, it opens doors to research opportunities, allowing you to consent to sharing specific data for valuable research endeavors.
