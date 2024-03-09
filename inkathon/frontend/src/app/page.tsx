@@ -29,9 +29,9 @@ export default function HomePage() {
                   Health Book
                 </h1>
                 <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-                  Securely Trace Your Medical Life Records by Empowering Blockchain Technology.
-                  Store your records on-chain and keep ownership and control over your data.
-                  Grant access to trusted healthcare providers, putting you in control of your healthcare journey.
+                  Securely trace your medical records using Blockchain technology. 
+                  Keep ownership and control over your medical data and grant access to 
+                  trusted healthcare providers, putting you in control of your healthcare journey.
                 </p>
                 <a href="/patient" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                   Get started
@@ -58,12 +58,12 @@ export default function HomePage() {
                   Always have your medical record up to date
                 </h2>
                 <p className="mb-4">
-                  When changing of doctors, the new one will not know about all the past medical records you have.
-                  It can be difficult for him to know all the things you have encounter and also for you, who may not have the tecnical language to explain to
-                  him all the disease you have.
+                  When going to a new doctor, it can be difficult to keep track of all your previous medical records. So it can be difficult for new doctors to know everything you have encountered. But also for you, who may not have the technical language to explain all the previous and current illnesses you suffer from.
 
-                  We want to simplify that. From the patient, it simplifies the process, no need to prepare the list of all the medecines, or all the allergen you have, it is on-chain.
-                  And for the doctor, it is easier, he can have a better understanding of who you are see you current treatment.
+                  <br />
+
+                  No more scrambling to remember every detail during appointments or worrying about leaving out crucial information. From medical operation to allergens, grant access to trusted healthcare providers, putting you in control of your healthcare journey.
+
                 </p>
               </div>
 
@@ -81,11 +81,7 @@ export default function HomePage() {
                   Be ready on an emergency
                 </h2>
                 <p className="mb-4">
-                  Have a physical token, similar to your bloodcard, allowing people to access your medical records in case of emergency.
-
-                  Authorize medical entities to access your medical records on emergency issues.
-                  When an accident occurs, we do not have the possibility to share in detail all the patient record. However, with on-chain solution,
-                  a doctor can have access to those precious data, and adapt care for the patient.
+                  With Health Book, your medical records are instantly available in emergencies. We proposed a physical token, similar to a blood card, allowing authorized medical personnel to quickly access your vital information. This ensures prompt and personalized care when every second counts.
 
                 </p>
               </div>
@@ -93,11 +89,8 @@ export default function HomePage() {
               <div className="grid mt-6">
                 <img className='rounded-lg' src="/images/operation.png" alt="mockup" />
               </div>
-
             </div>
-
           </section>
-
 
 
           <section className="bg-white dark:bg-gray-900">
@@ -110,11 +103,10 @@ export default function HomePage() {
 
               <div className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
                 <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-                  Be part of the reasearch
+                  You're in control of your medical data
                 </h2>
                 <p className="mb-4">
-                  By controlling your medical information, you can control to who you send it and what the provider can do with it.
-
+                  Easily grant or revoke access to your information whenever you choose. This level of control promotes transparency, ensuring that medical professionals only have access to the information you permit. Plus, it opens doors to research opportunities, allowing you to consent to sharing specific data for valuable research endeavors.
                 </p>
               </div>
 
@@ -129,7 +121,9 @@ export default function HomePage() {
             <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
               <div className="mx-auto max-w-screen-sm text-center">
                 <h2 className="mb-4 text-4xl tracking-tight font-extrabold leading-tight text-gray-900 dark:text-white">Get Started</h2>
-                <p className="mb-6 font-light text-gray-500 dark:text-gray-400 md:text-lg">Start storing your medical records.</p>
+                <p className="mb-6 font-light text-gray-500 dark:text-gray-400 md:text-lg">
+                  Start storing your medical records.
+                </p>
                 <a href="/patient" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                   Get started
                 </a>
