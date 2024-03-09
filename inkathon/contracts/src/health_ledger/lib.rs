@@ -52,7 +52,7 @@ mod health_ledger {
             record_type: String
         ) {
             let new_record = HealthRecord {
-                date: 0,
+                date: self.env().block_timestamp(),
                 title,
                 doctor,
                 hospital,
