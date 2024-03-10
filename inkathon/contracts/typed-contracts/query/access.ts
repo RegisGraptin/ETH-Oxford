@@ -89,6 +89,8 @@ export default class Methods {
 		doctor: ArgumentTypes.AccountId,
 		__options ? : GasLimit,
 	): Promise< QueryReturnType< Result<boolean, ReturnTypes.LangError> > >{
+		console.log("Authorization")
+		console.log(this.__callerAddress)
 		return queryOkJSON( this.__apiPromise, this.__nativeContract, this.__callerAddress, "getAuthorization", [doctor], __options , (result) => { return handleReturnType(result, getTypeDescription(9, DATA_TYPE_DESCRIPTIONS)); });
 	}
 

@@ -71,11 +71,17 @@ export const HealthContractInteractions: FC = () => {
 
     // Fetch Greeting
     const fetchRecords = async () => {
+        
+        if (!activeAccount || !contract || !activeSigner || !api) {
+            toast.error('Wallet not connected. Try again…')
+            return
+        }
+
         if (!contract || !typedContract || !api) return
 
         setFetchIsLoading(true)
         try {
-            const result = await contractQuery(api, '', contract, 'get')
+            const result = await contractQuery(api, activeAccount.address, contract, 'get')
             
             const { output, isError, decodedOutput } = decodeOutput(result, contract, 'get')
             if (isError) throw new Error(decodedOutput)

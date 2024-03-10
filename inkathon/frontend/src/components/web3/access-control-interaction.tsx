@@ -44,11 +44,15 @@ export const AccessContractInteractions: FC = () => {
 
     // Fetch Greeting
     const fetchDoctors = async () => {
-        if (!contract || !typedContract || !api) return
+        
+        if (!activeAccount || !contract || !activeSigner || !api) {
+            toast.error('Wallet not connected. Try again…')
+            return
+        }
 
         setFetchIsLoading(true)
         try {
-            const result = await contractQuery(api, '', contract, 'get_doctor')
+            const result = await contractQuery(api, activeAccount.address, contract, 'get_doctor')
             const { output, isError, decodedOutput } = decodeOutput(result, contract, 'get_doctor')
             if (isError) throw new Error(decodedOutput)
             if (output != undefined) {
@@ -63,6 +67,7 @@ export const AccessContractInteractions: FC = () => {
             setFetchIsLoading(false)
         }
     }
+
     useEffect(() => {
         fetchDoctors()
     }, [typedContract])
@@ -115,10 +120,15 @@ export const AccessContractInteractions: FC = () => {
             return false;
         }
 
-        const typedResult = await typedContract.query.getAuthorization(doctorId)
-        console.log('Result from typed contract: ', typedResult.value)
-
-        return typedResult.value;
+        const result = await contractQuery(api, activeAccount.address, contract, 'get_authorization', {}, [doctorId])
+        
+        const { output, isError, decodedOutput } = decodeOutput(result, contract, 'getAuthorization')
+        if (isError) throw new Error(decodedOutput)
+        if (output != undefined) {
+            return output;
+        }
+        
+        return false;
     }
 
     if (!api) return null
@@ -135,8 +145,9 @@ export const AccessContractInteractions: FC = () => {
 
                             {doctorsMessage.map((object: string, index) => (
 
-                                <li className="py-3 sm:py-4" key={index}>
-                                    {/* style={{ backgroundColor: getDoctorStatus(object) ? '#FF0000' : '#00FF00' }} */}
+                                <li className="py-3 sm:py-4" key={index}
+                                    // style={{ backgroundColor: getDoctorStatus(object) ? '#5218fa' : '#b7410e' }}
+                                >
                                 <div className="flex items-center">
                                     <div className="flex-shrink-0">
                                         <img className="w-12 h-12 rounded-full" src="/icons/doctor.png" alt="Doctor icon" />
