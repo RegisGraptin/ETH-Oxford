@@ -69,7 +69,7 @@ export const AccessContractInteractions: FC = () => {
 
 
     // Authorize a doctor
-    const authorizeDoctor = async ({ doctorId }) => {
+    const authorizeDoctor = async (doctorId: string) => {
 
         if (!activeAccount || !contract || !activeSigner || !api) {
             toast.error('Wallet not connected. Try again…')
@@ -87,7 +87,7 @@ export const AccessContractInteractions: FC = () => {
         }
     }
 
-    const revokeDoctor = async ({ doctorId }) => {
+    const revokeDoctor = async (doctorId: string) => {
 
         if (!activeAccount || !contract || !activeSigner || !api) {
             toast.error('Wallet not connected. Try again…')
@@ -105,7 +105,7 @@ export const AccessContractInteractions: FC = () => {
         }
     }
 
-    const getDoctorStatus = async ({ doctorId }) => {
+    const getDoctorStatus = async (doctorId: string) => {
         if (!activeAccount || !contract || !activeSigner || !api) {
             toast.error('Wallet not connected. Try again…')
             return
@@ -129,7 +129,7 @@ export const AccessContractInteractions: FC = () => {
                         <div className="flow-root">
                             <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
 
-                            {doctorsMessage.map((object, index) => (
+                            {doctorsMessage.map((object: string, index) => (
 
                                 <li className="py-3 sm:py-4" key={index}>
                                     {/* style={{ backgroundColor: getDoctorStatus(object) ? '#FF0000' : '#00FF00' }} */}
