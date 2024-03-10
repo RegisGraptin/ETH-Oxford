@@ -111,6 +111,10 @@ export const AccessContractInteractions: FC = () => {
             return
         }
 
+        if (typedContract == undefined) {
+            return false;
+        }
+
         const typedResult = await typedContract.query.getAuthorization(doctorId)
         console.log('Result from typed contract: ', typedResult.value)
 
