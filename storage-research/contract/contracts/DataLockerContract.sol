@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 // Uncomment this line to use console.log
 // import "hardhat/console.sol";
 
-contract CustomContract {
+contract DataLockerContract {
 
     // Minimum time access
     uint min_time_access = 1 days;
@@ -41,7 +41,8 @@ contract CustomContract {
     }
 
     function check_access(uint index) external view returns (bool) {
-        return access_time[index][msg.sender] <= block.timestamp;
+        require(index < projectId, "INVALID_PROJECT"); 
+        return access_time[index][msg.sender] >= block.timestamp;
     }
 
 }
