@@ -29,6 +29,7 @@ We are using Aleph Zero to store medical records of patients on the Blockchain. 
 We have use the `ink!athon` boilerplate to structure the project organization for the smart contract and front end.
 Contract information can be found in `inkathon/contract/`.
 
+We also start working with Filecoin in order to store larger medical records as clinical results. This would enable the creation of future dataset on-chain, in a transparent way since the user would have to explicitly authorize access.
 
 
 ## Roadmap
